@@ -76,4 +76,31 @@ for i in range(5,0,-1):
 
 
 
+#User se ek number lo aur uska table print karo.
+# User se ek number lo aur uska factorial nikalo.
+# Given list me se maximum element find karo (without max()).
+# Count karo ki list me kitne even numbers hain.
+# User se string lo aur vowels count karo.
+# String ko reverse karo using loop (without slicing).
+# List me se duplicate elements remove karo.
+# Multiplication tables from 1 to 5 print karo.
+# 1 se 10 tak numbers print karo using while loop.
+# User se numbers input lete raho jab tak wo 0 enter na kare.
+# Guess the number game (fixed number = 7).
+# Number ka digit count find karo.
+# Number ka sum of digits find karo.
+# Check karo number prime hai ya nahi.
+# Fibonacci series print karo (n terms).
+# Check karo number palindrome hai ya nahi.
+# List me second largest element find karo.
+# String me har character ki frequency count karo (dictionary + loop).
+# Armstrong number check karo.
+# Given list ko reverse karo without reverse() or slicing
+# Sentence ke har word ko new line me print karo.
+# Longest word find karo from sentence.
+# Remove extra spaces from string using loop.
+# List ko flatten karo: [[1,2],[3,4],[5,6]] → [1,2,3,4,5,6]
+
+
+
  
