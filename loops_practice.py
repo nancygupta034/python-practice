@@ -30,7 +30,7 @@ for i in range(51):
 #List [10, 20, 30, 40, 50] ke sab elements print karo.
 list = [10, 20, 30, 40, 50]
 for i in range(len(list)):
-#     print(list[i])
+    print(list[i])
 
 #String "python" ke har character ko new line me print karo.
 str = "python"
@@ -165,7 +165,7 @@ number = 1
 while number != 0:
     number = int(input("Enter number: "))
 
-Guess the number game (fixed number = 7).
+# Guess the number game (fixed number = 7).
 fixed_number = 7
 number = 0
 while number != fixed_number:
