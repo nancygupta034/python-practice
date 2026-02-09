@@ -10,7 +10,6 @@ print(sttr.count('$'))
 
 
 #Conditional Statements
-
 marks = int(input("Enter the marks you got: "))
 if marks >= 90:
     grade = "A"
