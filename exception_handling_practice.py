@@ -1,121 +1,154 @@
 #LEVEL 1 – BASIC TRY / EXCEPT
 # User se number lo aur divide by 10 karo. -> Agar user string daal de toh error handle karo.
-try:
-    number = int(input("Enter number: "))
-    div = number /10
-    print(div)
-except:
-    print("Enter valid number")
+# try:
+#     number = int(input("Enter number: "))
+#     div = number /10
+#     print(div)
+# except:
+#     print("Enter valid number")
 
 # #Better Version: (ValueError specifically tab aata hai jab string ko int me convert nahi kar paate.)
-try:
-    number = int(input("Enter number: "))
-    div = number / 10
-    print(div)
-except ValueError:
-    print("Enter valid number")
+# try:
+#     number = int(input("Enter number: "))
+#     div = number / 10
+#     print(div)
+# except ValueError:
+#     print("Enter valid number")
 
 # 2 numbers lo aur divide karo. -> ZeroDivisionError handle karo.
-try:
-    num1 = int(input("Enter 1st number: "))
-    num2 = int(input("Enter 2nd number: "))
-    if num1 == 0 or num2 == 0:
-        raise ZeroDivisionError("Cannot be divided by zero")
-    div = num1/num2
-    print(div)
-except ZeroDivisionError as msg:
-    print(msg)
+# try:
+#     num1 = int(input("Enter 1st number: "))
+#     num2 = int(input("Enter 2nd number: "))
+#     if num1 == 0 or num2 == 0:
+#         raise ZeroDivisionError("Cannot be divided by zero")
+#     div = num1/num2
+#     print(div)
+# except ZeroDivisionError as msg:
+#     print(msg)
 
 # #Better Version: (Python khud ZeroDivisionError raise karta hai — manually check karne ki zarurat nahi thi.)
-try:
-    num1 = int(input("Enter 1st number: "))
-    num2 = int(input("Enter 2nd number: "))
-    result = num1 / num2
-    print(result)
-except ZeroDivisionError:
-    print("Cannot divide by zero")
-except ValueError:
-    print("Enter valid numbers")
+# try:
+#     num1 = int(input("Enter 1st number: "))
+#     num2 = int(input("Enter 2nd number: "))
+#     result = num1 / num2
+#     print(result)
+# except ZeroDivisionError:
+#     print("Cannot divide by zero")
+# except ValueError:
+#     print("Enter valid numbers")
 
 # List me se index input lo aur element print karo. -> IndexError handle karo.
-try:
-    list = [21,25,56,85,6]
-    index = int(input("Enter index: "))
-    if index not in range(-len(list), len(list)):
-         raise IndexError("Out of index")
-    print(list[index])
-except IndexError  as msg:
-    print(msg)
+# try:
+#     list = [21,25,56,85,6]
+#     index = int(input("Enter index: "))
+#     if index not in range(-len(list), len(list)):
+#          raise IndexError("Out of index")
+#     print(list[index])
+# except IndexError  as msg:
+#     print(msg)
 
 #Better Version: Manual range check unnecessary hai. Python already IndexError deta hai and list naam mat use karo — yeh Python ka built-in function hai.Isko override karna bad practice hai.
-my_list = [21,25,56,85,6]
+# my_list = [21,25,56,85,6]
 
-try:
-    index = int(input("Enter index: "))
-    print(my_list[index])
-except IndexError:
-    print("Index out of range")
-except ValueError:
-    print("Enter valid index number")
+# try:
+#     index = int(input("Enter index: "))
+#     print(my_list[index])
+# except IndexError:
+#     print("Index out of range")
+# except ValueError:
+#     print("Enter valid index number")
 
 # Dictionary me se key input lo. -> Agar key exist na kare toh handle karo.
-dictionary = {"name": "nancy", "age": 30, "location": "thailand"}
-try:
-    key = input("Enter key: ")
-    dict_keys = dictionary.keys()
-    if key not in dict_keys:
-        raise IndexError("Out of index")
-    print(dictionary[key])
-except IndexError as msg:
-    print(msg)
+# dictionary = {"name": "nancy", "age": 30, "location": "thailand"}
+# try:
+#     key = input("Enter key: ")
+#     dict_keys = dictionary.keys()
+#     if key not in dict_keys:
+#         raise IndexError("Out of index")
+#     print(dictionary[key])
+# except IndexError as msg:
+#     print(msg)
 
 
 #Best Version: Dictionary me key missing hone par IndexError nahi, KeyError use hota hai. and dict_keys = dictionary.keys() unnecessary hai.
-dictionary = {"name": "nancy", "age": 30, "location": "thailand"}
+# dictionary = {"name": "nancy", "age": 30, "location": "thailand"}
 
-try:
-    key = input("Enter key: ")
-    print(dictionary[key])
-except KeyError:
-    print("Key does not exist")
+# try:
+#     key = input("Enter key: ")
+#     print(dictionary[key])
+# except KeyError:
+#     print("Key does not exist")
 
 
 #LEVEL 2 – MULTIPLE EXCEPT BLOCKS
 # Program banao jo: 1. number input le 2. list access kare 3. divide kare -> Handle: ValueError, IndexError, ZeroDivisionError
-try:
-    number = int(input("Enter number: "))
-    my_list = [21,25,56,85,6]
-    key = int(input("Enter key: "))
-    div = my_list[key]/number
-    print(f"Result is {div}")
-except IndexError:
-    print("Out of index error")
-except ZeroDivisionError:
-    print("Divided by zero is not allowed")
-except  ValueError:
-    print("Invalid number")
+# try:
+#     number = int(input("Enter number: "))
+#     my_list = [21,25,56,85,6]
+#     key = int(input("Enter key: "))
+#     div = my_list[key]/number
+#     print(f"Result is {div}")
+# except IndexError:
+#     print("Out of index error")
+# except ZeroDivisionError:
+#     print("Divided by zero is not allowed")
+# except  ValueError:
+#     print("Invalid number")
 
 # Ek program likho jo file open kare. -> Agar file exist na kare toh FileNotFoundError handle karo.
-try:
-    file_name = input("Enter file name: ")
-    f = open(file_name)
-    print("File opened")
-    f.close()
-except FileNotFoundError:
-    print("Sorry! This file doesn't exist.")
+# try:
+#     file_name = input("Enter file name: ")
+#     f = open(file_name)
+#     print("File opened")
+#     f.close()
+# except FileNotFoundError:
+#     print("Sorry! This file doesn't exist.")
 
 
 #Better Version: with open() use karna -> Yeh automatically file close karta hai.
-try:
-    file_name = input("Enter file name: ")
-    with open(file_name, "r") as f:
-        print("File opened successfully.")
-except FileNotFoundError:
-    print("File does not exist.")
+# try:
+#     file_name = input("Enter file name: ")
+#     with open(file_name, "r") as f:
+#         print("File opened successfully.")
+# except FileNotFoundError:
+#     print("File does not exist.")
 
 #LEVEL 3 – ELSE & FINALLY
 # 2 numbers divide karo: Agar error nahi aaye → result print karo (else) / Finally me print karo: "Program finished"
+try:
+    num1 =int(input("Enter first no.: "))
+    num2 =int(input("Enter second no.: "))
+    div = num1/num2
+except ValueError:
+    print("Enter valid number")
+except ZeroDivisionError:
+    print("Divided by zero not allowed")
+else:
+    print(f"Result is: {div}")
+finally:
+    print("Program finished")
+
 # File open karo, read karo, finally me close karo.
+try:
+    f = open("dist_set.py", "r")
+    print("File opened")
+except FileNotFoundError:
+    print("File not exists")
+finally:
+    f.close()
+    print("Program finished")
+
+#Better version -> Initialize f = None
+f = None
+try:
+    f = open("dist_set.py", "r")
+    print("File opened")
+except FileNotFoundError:
+    print("File not exists")
+finally:
+    if f:
+        f.close()
+    print("Program finished")
 
 #LEVEL 4 – CUSTOM EXCEPTION
 # Custom exception banao: InvalidAgeError -> Condition: Age < 18 → raise exception
