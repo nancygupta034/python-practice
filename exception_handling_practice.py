@@ -7,7 +7,7 @@ try:
 except:
     print("Enter valid number")
 
-#Better Version: (ValueError specifically tab aata hai jab string ko int me convert nahi kar paate.)
+# #Better Version: (ValueError specifically tab aata hai jab string ko int me convert nahi kar paate.)
 try:
     number = int(input("Enter number: "))
     div = number / 10
@@ -26,7 +26,7 @@ try:
 except ZeroDivisionError as msg:
     print(msg)
 
-#Better Version: (Python khud ZeroDivisionError raise karta hai — manually check karne ki zarurat nahi thi.)
+# #Better Version: (Python khud ZeroDivisionError raise karta hai — manually check karne ki zarurat nahi thi.)
 try:
     num1 = int(input("Enter 1st number: "))
     num2 = int(input("Enter 2nd number: "))
@@ -82,7 +82,36 @@ except KeyError:
 
 #LEVEL 2 – MULTIPLE EXCEPT BLOCKS
 # Program banao jo: 1. number input le 2. list access kare 3. divide kare -> Handle: ValueError, IndexError, ZeroDivisionError
+try:
+    number = int(input("Enter number: "))
+    my_list = [21,25,56,85,6]
+    key = int(input("Enter key: "))
+    div = my_list[key]/number
+    print(f"Result is {div}")
+except IndexError:
+    print("Out of index error")
+except ZeroDivisionError:
+    print("Divided by zero is not allowed")
+except  ValueError:
+    print("Invalid number")
+
 # Ek program likho jo file open kare. -> Agar file exist na kare toh FileNotFoundError handle karo.
+try:
+    file_name = input("Enter file name: ")
+    f = open(file_name)
+    print("File opened")
+    f.close()
+except FileNotFoundError:
+    print("Sorry! This file doesn't exist.")
+
+
+#Better Version: with open() use karna -> Yeh automatically file close karta hai.
+try:
+    file_name = input("Enter file name: ")
+    with open(file_name, "r") as f:
+        print("File opened successfully.")
+except FileNotFoundError:
+    print("File does not exist.")
 
 #LEVEL 3 – ELSE & FINALLY
 # 2 numbers divide karo: Agar error nahi aaye → result print karo (else) / Finally me print karo: "Program finished"
