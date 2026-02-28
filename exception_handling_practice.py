@@ -115,45 +115,89 @@
 
 #LEVEL 3 – ELSE & FINALLY
 # 2 numbers divide karo: Agar error nahi aaye → result print karo (else) / Finally me print karo: "Program finished"
-try:
-    num1 =int(input("Enter first no.: "))
-    num2 =int(input("Enter second no.: "))
-    div = num1/num2
-except ValueError:
-    print("Enter valid number")
-except ZeroDivisionError:
-    print("Divided by zero not allowed")
-else:
-    print(f"Result is: {div}")
-finally:
-    print("Program finished")
+# try:
+#     num1 =int(input("Enter first no.: "))
+#     num2 =int(input("Enter second no.: "))
+#     div = num1/num2
+# except ValueError:
+#     print("Enter valid number")
+# except ZeroDivisionError:
+#     print("Divided by zero not allowed")
+# else:
+#     print(f"Result is: {div}")
+# finally:
+#     print("Program finished")
 
 # File open karo, read karo, finally me close karo.
-try:
-    f = open("dist_set.py", "r")
-    print("File opened")
-except FileNotFoundError:
-    print("File not exists")
-finally:
-    f.close()
-    print("Program finished")
+# try:
+#     f = open("dist_set.py", "r")
+#     print("File opened")
+# except FileNotFoundError:
+#     print("File not exists")
+# finally:
+#     f.close()
+#     print("Program finished")
 
 #Better version -> Initialize f = None
-f = None
-try:
-    f = open("dist_set.py", "r")
-    print("File opened")
-except FileNotFoundError:
-    print("File not exists")
-finally:
-    if f:
-        f.close()
-    print("Program finished")
+# f = None
+# try:
+#     f = open("dist_set.py", "r")
+#     print("File opened")
+# except FileNotFoundError:
+#     print("File not exists")
+# finally:
+#     if f:
+#         f.close()
+#     print("Program finished")
 
 #LEVEL 4 – CUSTOM EXCEPTION
 # Custom exception banao: InvalidAgeError -> Condition: Age < 18 → raise exception
+class InvalidAgeError(BaseException):
+    pass
+
+try:
+    age = int(input("Enter age: "))
+    if age < 18:
+        raise InvalidAgeError("Age is not accepted")
+except InvalidAgeError as msg:
+    print(msg)
+
+#Better version
+class InvalidAgeError(Exception):
+    pass
+
+try:
+    age = int(input("Enter age: "))
+    if age < 18:
+        raise InvalidAgeError("Age is not accepted")
+except InvalidAgeError as e:
+    print(e)
 
 # Password check system: Password length < 6 → custom exception raise karo
+class PasswordLengthError(BaseException):
+    def __init__(self, msg):
+        print(msg)
+
+try:
+    password = input("Enter pasword: ")
+    if len(password) < 6:
+        raise PasswordLengthError("Password must be of 6 characters")
+except PasswordLengthError:
+    pass
+
+#better version
+class PasswordLengthError(Exception):
+    def __init__(self, message):
+        super().__init__(message)
+
+try:
+    password = input("Enter password: ")
+    if len(password) < 6:
+        raise PasswordLengthError("Password must be at least 6 characters long")
+except PasswordLengthError as e:
+    print(e)
+else:
+    print("Password accepted")
 
 #LEVEL 5 – RAISE KEYWORD
 #Function banao jo negative number accept na kare -> Agar negative aaye → raise ValueError
